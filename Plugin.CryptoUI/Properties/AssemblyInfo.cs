@@ -18,7 +18,7 @@ using System.Runtime.InteropServices;
 #endif
 [assembly: AssemblyCompany("Danila Korablin")]
 [assembly: AssemblyProduct("Plugin.CryptoUI")]
-[assembly: AssemblyCopyright("Copyright © Danila Korablin 2018-2019")]
+[assembly: AssemblyCopyright("Copyright © Danila Korablin 2018-2024")]
 #endif
 
 /*if $(ConfigurationName) == Release (

@@ -12,17 +12,16 @@
 		<description>Certificate Generator/Splitter and some other encryption functions based on Boucy Castle assembly</description>
 		<releaseNotes></releaseNotes>
 		<copyright>Danila Korablin</copyright>
-		<tags>SAL,Plugin</tags>
+		<tags>SAL,Plugin,Crypto</tags>
 		<dependencies>
 			<group targetFramework="net20">
-				<dependency id="SAL.Flatbed" version="1.2.9" />
-				<dependency id="SAL.Windows" version="1.2.9" />
+				<dependency id="SAL.Windows" version="1.2.10" />
 				<dependency id="BouncyCastle.Crypto.dll" version="1.8.1" />
 			</group>
 		</dependencies>
 	</metadata>
 	<files>
-		<file src="readme.md" target="docs" />
+		<file src="README.md" target="docs" />
 		<!--file src="bin\net20\Plugin.CryptoUI.xml" target="xml" /-->
 		<file src="bin\net20\Plugin.CryptoUI.dll" target="lib\net20" />
 	</files>
