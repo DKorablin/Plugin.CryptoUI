@@ -9,7 +9,7 @@ namespace Plugin.CryptoUI.Data
 {
 	[DisplayName("Generate Certificate")]
 	[Description("Create self-signed certificate or certificate with private key")]
-	internal class CertificateRequest : ICertRequest
+	internal class GenerateCertificate : ICertificateUI
 	{
 		private class Constants
 		{
@@ -37,20 +37,20 @@ namespace Plugin.CryptoUI.Data
 		public String Password { get; set; }
 
 		[Category("Security")]
-		[Description("Cerficate encryption strength")]
+		[Description("Certificate encryption strength")]
 		[DefaultValue(typeof(UInt32), "2048")]
 		public UInt32 Strength { get; set; } = 2048;
 
 		[Category("Security")]
-		[Description("Encryption algorihtm")]
+		[Description("Encryption algorithm")]
 		[DefaultValue(Constants.Algorithm)]
-		[Editor(typeof(AlgorithmEditor), typeof(UITypeEditor))]
+		[Editor(typeof(EncryptionAlgorithmEditor), typeof(UITypeEditor))]
 		public String Algorithm { get; set; } = Constants.Algorithm;
 
-		public CertificateRequest(PluginWindows plugin)
+		public GenerateCertificate(PluginWindows plugin)
 			=> this._plugin = plugin;
 
-		public void Invoke()
+		void ICertificateUI.Invoke()
 		{
 			Byte[] payload = this._plugin.GenerateCertificate(
 				this.Subject,

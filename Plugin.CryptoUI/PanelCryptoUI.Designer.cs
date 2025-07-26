@@ -34,9 +34,9 @@
 			this.splitMain = new System.Windows.Forms.SplitContainer();
 			this.splitToc = new System.Windows.Forms.SplitContainer();
 			this.lbModules = new System.Windows.Forms.ListBox();
-			this.bnInvoke = new System.Windows.Forms.Button();
 			this.pgMain = new System.Windows.Forms.PropertyGrid();
 			this.error = new System.Windows.Forms.ErrorProvider(this.components);
+			this.bnInvoke = new System.Windows.Forms.Button();
 			gbDescr = new System.Windows.Forms.GroupBox();
 			gbDescr.SuspendLayout();
 			this.splitMain.Panel1.SuspendLayout();
@@ -118,18 +118,6 @@
 			this.lbModules.TabIndex = 0;
 			this.lbModules.SelectedIndexChanged += new System.EventHandler(this.lbModules_SelectedIndexChanged);
 			// 
-			// bnInvoke
-			// 
-			this.bnInvoke.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.error.SetIconAlignment(this.bnInvoke, System.Windows.Forms.ErrorIconAlignment.MiddleLeft);
-			this.bnInvoke.Location = new System.Drawing.Point(68, 180);
-			this.bnInvoke.Name = "bnInvoke";
-			this.bnInvoke.Size = new System.Drawing.Size(75, 23);
-			this.bnInvoke.TabIndex = 1;
-			this.bnInvoke.Text = "&Invoke";
-			this.bnInvoke.UseVisualStyleBackColor = true;
-			this.bnInvoke.Click += new System.EventHandler(this.bnInvoke_Click);
-			// 
 			// pgMain
 			// 
 			this.pgMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -144,6 +132,18 @@
 			// error
 			// 
 			this.error.ContainerControl = this;
+			// 
+			// bnInvoke
+			// 
+			this.bnInvoke.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.error.SetIconAlignment(this.bnInvoke, System.Windows.Forms.ErrorIconAlignment.MiddleLeft);
+			this.bnInvoke.Location = new System.Drawing.Point(66, 180);
+			this.bnInvoke.Name = "bnInvoke";
+			this.bnInvoke.Size = new System.Drawing.Size(75, 23);
+			this.bnInvoke.TabIndex = 1;
+			this.bnInvoke.Text = "&Invoke";
+			this.bnInvoke.UseVisualStyleBackColor = true;
+			this.bnInvoke.Click += new System.EventHandler(this.bnInvoke_Click);
 			// 
 			// PanelCryptoUI
 			// 
@@ -171,9 +171,8 @@
 		private System.Windows.Forms.TextBox txtDescription;
 		private System.Windows.Forms.ListBox lbModules;
 		private System.Windows.Forms.SplitContainer splitMain;
-		private System.Windows.Forms.Button bnInvoke;
 		private System.Windows.Forms.ErrorProvider error;
 		private System.Windows.Forms.PropertyGrid pgMain;
-
+		private System.Windows.Forms.Button bnInvoke;
 	}
 }

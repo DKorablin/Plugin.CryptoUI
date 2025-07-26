@@ -2,7 +2,7 @@
 
 namespace Plugin.CryptoUI.Data
 {
-	internal interface ICertRequest
+	internal interface ICertificateUI
 	{
 		void Invoke();
 	}

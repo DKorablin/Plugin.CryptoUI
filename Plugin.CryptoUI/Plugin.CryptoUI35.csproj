@@ -52,9 +52,11 @@
     <Compile Include="..\WinForms.Shared\Design\ListBoxEditorBase.cs">
       <Link>UI\ListBoxEditorBase.cs</Link>
     </Compile>
-    <Compile Include="Data\CertificatePemToPkcs12Request.cs" />
-    <Compile Include="Data\CertificateToCsrPemRequest.cs" />
-    <Compile Include="Data\ICertRequest.cs" />
+    <Compile Include="BouncyCastleReflection.cs" />
+    <Compile Include="Data\GenerateApns.cs" />
+    <Compile Include="Data\ConvertPemToPkcs12.cs" />
+    <Compile Include="Data\ConvertCertToCsrPem.cs" />
+    <Compile Include="Data\ICertificateUI.cs" />
     <Compile Include="PanelCryptoUI.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -63,16 +65,18 @@
     </Compile>
     <Compile Include="PluginWindows.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Data\CertificateRequest.cs" />
+    <Compile Include="Data\GenerateCertificate.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="TypeExtender.cs" />
-    <Compile Include="UI\AlgorithmEditor.cs" />
+    <Compile Include="UI\EcAlgorithmEditor.cs" />
+    <Compile Include="UI\EncryptionAlgorithmEditor.cs" />
     <Compile Include="UI\CertFileOpener.cs" />
     <Compile Include="UI\PemFileOpener.cs" />
+    <Compile Include="UI\X9ObjectIdentifierEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="PanelCryptoUI.resx">

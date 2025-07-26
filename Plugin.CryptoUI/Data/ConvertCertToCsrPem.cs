@@ -9,8 +9,8 @@ using Plugin.CryptoUI.UI;
 namespace Plugin.CryptoUI.Data
 {
 	[DisplayName("Convert CERT to CSR/PEM")]
-	[Description("Convert certificate (crt) to certificate signing request (csr) and privacy enchanced certificate (pem)")]
-	internal class CertificateToCsrPemRequest : ICertRequest
+	[Description("Convert certificate (crt) to certificate signing request (csr) and privacy enhanced certificate (pem)")]
+	internal class ConvertCertToCsrPem : ICertificateUI
 	{
 		private readonly PluginWindows _plugin;
 
@@ -20,9 +20,9 @@ namespace Plugin.CryptoUI.Data
 		public String CertificatePath { get; set; }
 
 		[Category("Security")]
-		[Description("Encryption algorihtm")]
+		[Description("Encryption algorithm")]
 		[DefaultValue("SHA256WITHRSA")]
-		[Editor(typeof(AlgorithmEditor), typeof(UITypeEditor))]
+		[Editor(typeof(EncryptionAlgorithmEditor), typeof(UITypeEditor))]
 		public String Algorithm { get; set; } = "SHA256WITHRSA";
 
 		[Category("Security")]
@@ -30,7 +30,7 @@ namespace Plugin.CryptoUI.Data
 		[PasswordPropertyText(true)]
 		public String Password { get; set; }
 
-		public CertificateToCsrPemRequest(PluginWindows plugin)
+		public ConvertCertToCsrPem(PluginWindows plugin)
 			=> this._plugin = plugin;
 
 		public void Invoke()

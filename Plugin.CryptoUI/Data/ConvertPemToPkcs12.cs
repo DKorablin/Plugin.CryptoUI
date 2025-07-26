@@ -8,8 +8,8 @@ using Plugin.CryptoUI.UI;
 namespace Plugin.CryptoUI.Data
 {
 	[DisplayName("Convert CRT/PEM to PKCS#12")]
-	[Description("Convert certificate (crt) & privacy enchanced certificate (pem) to PKCS#12 (pfx)")]
-	internal class CertificatePemToPkcs12Request : ICertRequest
+	[Description("Convert certificate (crt) & privacy enhanced certificate (pem) to PKCS#12 (pfx)")]
+	internal class ConvertPemToPkcs12 : ICertificateUI
 	{
 		private readonly PluginWindows _plugin;
 
@@ -30,7 +30,7 @@ namespace Plugin.CryptoUI.Data
 		[PasswordPropertyText(true)]
 		public String Password { get; set; }
 
-		public CertificatePemToPkcs12Request(PluginWindows plugin)
+		public ConvertPemToPkcs12(PluginWindows plugin)
 			=> this._plugin = plugin;
 
 		public void Invoke()

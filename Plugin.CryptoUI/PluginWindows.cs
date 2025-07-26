@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Reflection;
 using System.Text;
 using Org.BouncyCastle.Asn1;
 using Org.BouncyCastle.Asn1.X509;
@@ -67,7 +65,7 @@ namespace Plugin.CryptoUI
 		/// <summary>Get a list of supported algorithms</summary>
 		/// <returns>List of algorithms for creating a certificate</returns>
 		public IEnumerable<String> GetAlgorithmNames()
-			=> PluginWindows.GetAlgorithmNamesI();
+			=> BouncyCastleReflection.GetAlgorithmNamesI();
 
 		/// <summary>Convert private key and X509 certificate with PKCS#12</summary>
 		/// <param name="cert">X509 certificate as an array of bytes</param>
@@ -135,7 +133,7 @@ namespace Plugin.CryptoUI
 			else if(to < from)
 				throw new ArgumentException("Date FROM must be less than date TO");
 			else if(String.IsNullOrEmpty(algorithm))
-				throw new ArgumentException("Encryption algorthm not selected", nameof(algorithm));
+				throw new ArgumentException("Encryption algorithm not selected", nameof(algorithm));
 
 			KeyValuePair<SystemCert.X509Certificate, AsymmetricCipherKeyPair> certificate = this.GenerateCertificateI(subject, strength, algorithm, from, to, extensions);
 			if(String.IsNullOrEmpty(password))
@@ -159,7 +157,7 @@ namespace Plugin.CryptoUI
 			if(certificate == null)
 				throw new ArgumentNullException(nameof(certificate), "Certificate file does not exist");
 			else if(String.IsNullOrEmpty(algorithm))
-				throw new ArgumentException("Encryption algorthm not selected", nameof(algorithm));
+				throw new ArgumentException("Encryption algorithm not selected", nameof(algorithm));
 
 			X509Name name = new X509Name(certificate.Subject);
 			AsymmetricCipherKeyPair ackp = DotNetUtilities.GetKeyPair(certificate.PrivateKey);
@@ -312,15 +310,6 @@ namespace Plugin.CryptoUI
 			if(this.ConfigMenu != null)
 				this.HostWindows.MainMenu.Items.Remove(this.ConfigMenu);
 			return true;
-		}
-
-		internal static IEnumerable<String> GetAlgorithmNamesI()
-		{
-			Type x509utilities = Assembly.GetAssembly(typeof(IX509Extension)).GetType("Org.BouncyCastle.X509.X509Utilities", true);
-
-			IEnumerable algorithms = (IEnumerable)x509utilities.InvokeMember("GetAlgNames", BindingFlags.FlattenHierarchy | BindingFlags.InvokeMethod | BindingFlags.NonPublic | BindingFlags.Static, null, null, null);
-			foreach(Object item in algorithms)
-				yield return item.ToString();
 		}
 
 		private static TraceSource CreateTraceSource<T>(String name = null) where T : IPlugin
