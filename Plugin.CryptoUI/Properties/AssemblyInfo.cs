@@ -6,6 +6,8 @@ using System.Runtime.InteropServices;
 
 [assembly: AssemblyDescription("Certificate Generator/Splitter")]
 
+[assembly: AssemblyCopyright("Copyright © Danila Korablin 2018-2025")]
+
 /*if $(ConfigurationName) == Release (
 ..\..\..\..\ILMerge.exe  "/out:$(ProjectDir)..\bin\$(TargetFileName)" "$(TargetDir)$(TargetFileName)" "$(TargetDir)BouncyCastle.Crypto.dll" "/lib:..\..\..\SAL\bin"
 )*/
