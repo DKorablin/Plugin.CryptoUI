@@ -50,7 +50,7 @@ namespace Plugin.CryptoUI
 		}
 
 		public PanelCryptoUI()
-			=> InitializeComponent();
+			=> this.InitializeComponent();
 
 		protected override void OnCreateControl()
 		{

@@ -1,0 +1,17 @@
+<Project>
+	<PropertyGroup>
+		<ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageVersion Include="Portable.BouncyCastle" Version="1.9.0" />
+		<PackageVersion Include="SAL.Windows" Version="1.2.11">
+			<ExcludeAssets>runtime</ExcludeAssets>
+		</PackageVersion>
+		<PackageVersion Include="Microsoft.AutomaticGraphLayout.GraphViewerGDI" Version="1.1.13" />
+		<!--Analyzers-->
+		<GlobalPackageReference Include="SonarAnalyzer.CSharp" Version="10.8.0.113526">
+			<PrivateAssets>All</PrivateAssets>
+			<IncludeAssets>Runtime; Build; Native; contentfiles; Analyzers; buildtransitive</IncludeAssets>
+		</GlobalPackageReference>
+	</ItemGroup>
+</Project>

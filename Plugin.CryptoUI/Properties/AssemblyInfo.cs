@@ -5,7 +5,6 @@ using System.Runtime.InteropServices;
 [assembly: System.CLSCompliant(true)]
 
 [assembly: AssemblyDescription("Certificate Generator/Splitter")]
-
 [assembly: AssemblyCopyright("Copyright © Danila Korablin 2018-2025")]
 
 /*if $(ConfigurationName) == Release (

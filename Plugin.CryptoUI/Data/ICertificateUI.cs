@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Plugin.CryptoUI.Data
+﻿namespace Plugin.CryptoUI.Data
 {
 	internal interface ICertificateUI
 	{

@@ -11,10 +11,11 @@ namespace Plugin.CryptoUI.Data
 	[Description("Create self-signed certificate or certificate with private key")]
 	internal class GenerateCertificate : ICertificateUI
 	{
-		private class Constants
+		private static class Constants
 		{
 			public const String Algorithm = "SHA256WITHRSA";
 		}
+
 		private readonly PluginWindows _plugin;
 
 		[Category("Description")]
