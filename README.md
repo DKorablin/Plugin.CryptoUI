@@ -4,7 +4,7 @@
 [![NuGet](https://img.shields.io/badge/NuGet-AlphaOmega.SAL.Plugin.CryptoUI-blue)](https://github.com/DKorablin/Plugin.CryptoUI/packages)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-A Windows Forms plugin for certificate generation, conversion, and cryptographic operations based on the Bouncy Castle cryptography library. Part of the SAL (Software Analysis Library) plugin ecosystem.
+A Windows Forms plugin for certificate generation, conversion, and cryptographic operations based on the Bouncy Castle cryptography library. Part of the SAL (Software Abstraction Layer) plugin ecosystem.
 
 ## Features
 
