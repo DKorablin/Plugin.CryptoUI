@@ -40,7 +40,7 @@ namespace Plugin.CryptoUI
 							if(ctor != null)
 								modules.Add((Data.ICertificateUI)ctor.Invoke(ctorArgs));
 							else
-								this.Plugin.Trace.TraceInformation("Can't create UI control of type {0}", type);
+								this.Plugin.Trace.TraceEvent(System.Diagnostics.TraceEventType.Information, 0, "Can't create UI control of type {0}", type);
 						}
 
 					this._moduleTypes = modules.ToArray();

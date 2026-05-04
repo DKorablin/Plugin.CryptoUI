@@ -33,13 +33,12 @@ namespace Plugin.CryptoUI
 		}
 
 		private readonly IHost _host;
-		private TraceSource _trace;
 		private Dictionary<String, DockState> _documentTypes;
 
 		internal IHostWindows HostWindows => this._host as IHostWindows;
 		private IMenuItem ConfigMenu { get; set; }
 
-		internal TraceSource Trace => this._trace ?? (this._trace = PluginWindows.CreateTraceSource<PluginWindows>());
+		internal ITraceSource Trace { get; }
 
 		private Dictionary<String, DockState> DocumentTypes
 		{
@@ -56,8 +55,11 @@ namespace Plugin.CryptoUI
 			}
 		}
 
-		public PluginWindows(IHost host)
-			=> this._host = host ?? throw new ArgumentNullException(nameof(host));
+		public PluginWindows(IHost host, ITraceSource trace)
+		{
+			this._host = host ?? throw new ArgumentNullException(nameof(host));
+			this.Trace = trace ?? throw new ArgumentNullException(nameof(trace));
+		}
 
 		public IWindow GetPluginControl(String typeName, Object args)
 			=> this.CreateWindow(typeName, false, args);
@@ -298,7 +300,7 @@ namespace Plugin.CryptoUI
 				{
 					this.ConfigMenu = menuTools.Create("&Crypto");
 					this.ConfigMenu.Name = "Tools.Crypto";
-					this.ConfigMenu.Click += (sender, e) => { this.CreateWindow(typeof(PanelCryptoUI).ToString(), true); };
+					this.ConfigMenu.Click += (sender, e) => this.CreateWindow(typeof(PanelCryptoUI).ToString(), true);
 					menuTools.Items.Insert(0, this.ConfigMenu);
 				}
 			}
@@ -310,15 +312,6 @@ namespace Plugin.CryptoUI
 			if(this.ConfigMenu != null)
 				this.HostWindows.MainMenu.Items.Remove(this.ConfigMenu);
 			return true;
-		}
-
-		private static TraceSource CreateTraceSource<T>(String name = null) where T : IPlugin
-		{
-			TraceSource result = new TraceSource(typeof(T).Assembly.GetName().Name + name);
-			result.Switch.Level = SourceLevels.All;
-			result.Listeners.Remove("Default");
-			result.Listeners.AddRange(System.Diagnostics.Trace.Listeners);
-			return result;
 		}
 
 		private IWindow CreateWindow(String typeName, Boolean searchForOpened, Object args = null)
