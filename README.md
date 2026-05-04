@@ -1,7 +1,6 @@
 # Plugin.CryptoUI
 
 [![Auto build](https://github.com/DKorablin/Plugin.CryptoUI/actions/workflows/release.yml/badge.svg)](https://github.com/DKorablin/Plugin.CryptoUI/releases/latest)
-[![NuGet](https://img.shields.io/badge/NuGet-AlphaOmega.SAL.Plugin.CryptoUI-blue)](https://github.com/DKorablin/Plugin.CryptoUI/packages)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A Windows Forms plugin for certificate generation, conversion, and cryptographic operations based on the Bouncy Castle cryptography library. Part of the SAL (Software Abstraction Layer) plugin ecosystem.
@@ -43,7 +42,7 @@ To install the CryptoUI Plugin, follow these steps:
 
 ### Dependencies
 - **Portable.BouncyCastle** (v1.9.0) - Cryptographic operations
-- **SAL.Windows** (v1.2.11) - Plugin framework and UI infrastructure
+- **SAL.Windows** (v1.2.12) - Plugin framework and UI infrastructure
 
 ### Architecture
 The plugin uses a modular architecture where each cryptographic operation is implemented as a separate module implementing the `ICertificateUI` interface:
